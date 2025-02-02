@@ -5,9 +5,13 @@ const student = {
 
 // Function to get all the keys of an object
 function getKeys(obj) {
-  return Object.keys(obj); // Using Object.keys to return the keys as an array
+  if (Object.keys(obj).length === 0) {
+    return "No keys found"; // Handle empty objects
+  }
+  return Object.keys(obj);
 }
 
-// Testing the function by passing the student object
-const keys = getKeys(student);
-console.log(keys); // Output: ["name"]
+// Testing the function with different objects
+console.log(getKeys(student)); // Output: ["name"]
+console.log(getKeys({ age: 25, city: "New York" })); // Output: ["age", "city"]
+console.log(getKeys({})); // Output: "No keys found"
